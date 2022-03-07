@@ -1,0 +1,9 @@
+public class AccountController 
+{
+    @AuraEnabled(cacheable=true)
+    public static List<Contact> getAllContacts()
+    {
+        return [Select Id,FirstName,LastName,Title,Phone
+               from Contact with SECURITY_ENFORCED limit 10];
+    }
+}
